@@ -1,15 +1,30 @@
+"""
+Uses animechan WebAPI to get anime quotes
+
+Date Modified: Jan 24, 2022
+Author: Chanson Tang
+"""
 from discord.ext import commands
 import requests
 import json
 import random
 
 def get_quote():
+    """
+    Returns a random quote from a random anime character in a formatted text
+    :return: string, quote
+    """
     response = requests.get("https://animechan.vercel.app/api/random")
     json_data = json.loads(response.text)
     quote = json_data['quote'] + "\n-" + json_data['character'] + " from " + json_data['anime']
     return(quote)
 
 def get_quote_by(character):
+    """
+    Returns a random quote from the character of input in a formatted text
+    :param character: string, character for quote
+    :return: string, quote
+    """
     response = requests.get("https://animechan.vercel.app/api/quotes/character?name={}".format(character))
     json_data = json.loads(response.text)
     if 'error' in json_data:
@@ -19,6 +34,11 @@ def get_quote_by(character):
     return(quote)
 
 def get_quote_from(title):
+    """
+    Returns a random quote from an anime series of input in a formatted text
+    :param title: string, series title for quote
+    :return: string, quote
+    """
     response = requests.get("https://animechan.vercel.app/api/quotes/anime?title={}".format(title))
     json_data = json.loads(response.text)
     if 'error' in json_data:
@@ -28,6 +48,9 @@ def get_quote_from(title):
     return(quote)
 
 class anime_quote(commands.Cog):
+  """
+  Bot command class
+  """
   def __init__(self, client):
     self.client = client
 

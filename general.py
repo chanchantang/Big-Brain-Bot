@@ -1,3 +1,10 @@
+"""
+General commands such as flipping a coin, rolling a dice, and random numbers
+
+Date Modified: Jan 24, 2022
+Author: Chanson Tang
+"""
+
 from discord.ext import commands
 import random
 
@@ -7,6 +14,10 @@ class general(commands.Cog):
 
   @commands.command(help='Flip a coin')
   async def flip(self, ctx):
+    """
+    Sends randomly either heads or tails
+    :param ctx: client
+    """
     rand = random.randint(0, 1)
     if rand == 0:
       await ctx.send("Heads!")
@@ -15,11 +26,19 @@ class general(commands.Cog):
 
   @commands.command(help='Roll a dice')
   async def dice(self, ctx):
+    """
+    Sends a random number between [1, 6], represents a dice
+    :param ctx: client
+    """
     rand = random.randint(1, 6)
     await ctx.send("You rolled a " + str(rand) + "!")
 
   @commands.command(aliases=['random'], help='Generate a random number between two inputs .random x y')
   async def rand(self, ctx, *args):
+    """
+    Sends a random number between given ranges
+    :param ctx: client
+    """
     if len(args) != 2:
       await ctx.send("Usage: .random x y")
       return

@@ -1,3 +1,10 @@
+"""
+An interactive Discord Bot using Python with WebAPIs 
+
+Date Modified: Jan 24, 2022
+Author: Chanson Tang
+"""
+
 import os
 import discord
 from discord.ext import commands

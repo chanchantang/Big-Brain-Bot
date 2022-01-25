@@ -1,8 +1,19 @@
+"""
+Parses HTML from Steam.com to extract the prices of games
+
+Date Modified: Jan 24, 2022
+Author: Chanson Tang
+"""
+
 from bs4 import BeautifulSoup
 import requests
 from discord.ext import commands
 
 def price_search(game_input):
+  """
+  Prints the title and prices of the game based on input
+  :param game_input: string, title of game
+  """
   html_text = requests.get(f'https://store.steampowered.com/search/?term={game_input}&category1=998').text
 
   soup = BeautifulSoup(html_text, 'lxml')

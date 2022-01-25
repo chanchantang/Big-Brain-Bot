@@ -1,8 +1,19 @@
+"""
+Sends random inspiration quotes from zenquotes
+
+Date Modified: Jan 24, 2022
+Author: Chanson Tang
+"""
+
 from discord.ext import commands
 import requests
 import json
 
 def get_quote():
+    """
+    Sends a random inspiration quote
+    :return: none
+    """
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
     quote = json_data[0]['q'] + "\n-" + json_data[0]['a']
