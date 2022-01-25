@@ -1,4 +1,4 @@
-# Big Brain Bot 🧠
+![_🧠_Big_Brain_Bot](https://user-images.githubusercontent.com/90084138/150903251-fb2ef38a-7f9d-4fa6-8fb9-1faa2f17e639.png)
 
 ### A Biggest Brain Discord Bot
 
